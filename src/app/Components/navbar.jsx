@@ -1,10 +1,10 @@
-// src/app/Components/Navbar.jsx
 "use client";
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function Navbar() {
     const router = useRouter();
@@ -24,14 +24,22 @@ export default function Navbar() {
         <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
                 <Link href="#" className="flex items-center">
-                    <img src="https://www.shutterstock.com/image-vector/astrology-logo-design-vector-template-260nw-1195750957.jpg" className="h-6 mr-3 sm:h-9" alt="Astrojanak Logo" />
+                    
+                    <Image 
+                    width={40} 
+                    height={60} 
+                    src="https://www.shutterstock.com/image-vector/astrology-logo-design-vector-template-260nw-1195750957.jpg" 
+                    className="h-6 mr-3 sm:h-9" 
+                    alt="Astrojanak Logo" />
+
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Astro Janak</span>
                 </Link>
                 <div className="flex items-center lg:order-2">
                     {user ? (
                         <>
-                            <span className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
-                                Hello, {user.name}
+                            <span className="cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                                Hello, {user.name.split(' ')[0]} &nbsp;
+                                {user.isAdmin && <span>(ADMIN)</span>}
                             </span>
                             <button onClick={logout} className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
                                 Logout
@@ -62,11 +70,31 @@ export default function Navbar() {
                                 <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About</span>
                             </Link>
                         </li>
-                        <li>
-                            <Link href= "/appointment">
-                                <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Book Appointment</span>
-                            </Link>
-                        </li>
+                        {user && user.isAdmin ? (
+                            <>
+                                <li>
+                                    <Link href="/view-appointments">
+                                        <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">View Appointments</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/view-users">
+                                        <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">View Users</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/Calendar">
+                                        <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Calendar</span>
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
+                            <li>
+                                <Link href="/appointment">
+                                    <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Book Appointment</span>
+                                </Link>
+                            </li>
+                        )}
                         <li>
                             <Link href="#about">
                                 <span className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</span>

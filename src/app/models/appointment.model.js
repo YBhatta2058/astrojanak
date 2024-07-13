@@ -8,6 +8,8 @@ const appointmentSchema = new Schema({
     description: { type: String,default:"Random",required:true},
     status: { type: String, enum: ['pending', 'accepted', 'rescheduled'], default: 'pending' },
     adminNotes: { type: String,default:"No notes" }
+},{
+    timestamps:true
 });
 
 export const Appointment = mongoose.models.Appointment || mongoose.model('Appointment', appointmentSchema);

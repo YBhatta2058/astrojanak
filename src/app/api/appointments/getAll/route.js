@@ -10,12 +10,11 @@ export async function GET(request){
     const isAdmin = await verifyAdmin(request);
     if(!isAdmin){
         throw new ApiError(401,"Unauthrized access. Admin access required")
-    }
-        const appointments = await Appointment.find();
+    }   
+        const appointments = await Appointment.find().populate('userId','name');
         return NextResponse.json({message: "All appointments fetched successfully",data: appointments},{status: 200})
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: error.message},{status: error.statusCode})
     }
-
 }

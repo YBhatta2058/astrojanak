@@ -8,8 +8,8 @@ import bcrypt from "bcrypt"
     port: 587,
     secure: false,
     auth: {
-      user: "ybhatta70@gmail.com",
-        pass: "diyv vntb csgp dtmf"
+      user: process.env.APP_USERNAME,
+        pass: process.env.APP_PASSWORD
     },
   });
 

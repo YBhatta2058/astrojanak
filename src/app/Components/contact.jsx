@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import Navbar from '../Components/navbar';
+import Navbar from './Navbar';
 import axios from 'axios';
 import { useAuth } from '../hooks/useAuth';
 
@@ -57,9 +57,7 @@ export default function Contact() {
                             </button>
                         </form>
                     </div>
-                    {/* <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                        <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="contact image" />
-                    </div> */}
+                    
                 </div>
             </section>
         </div>

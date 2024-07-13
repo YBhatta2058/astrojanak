@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from 'react';
-import Navbar from '../Components/navbar';
+import Navbar from '../Components/Navbar';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Link from 'next/link'; // Import Link from Next.js
+import Image from 'next/image';
 
 export default function BookingPage() {
     const [date, setDate] = useState('');
@@ -61,7 +62,7 @@ export default function BookingPage() {
                         </div>
                     </div>
                     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                        <img src="https://cdn.britannica.com/72/223172-131-C3F72804/astrology-horoscope-circle.jpg" alt="booking image" className="rounded-lg shadow-md" />
+                        <Image width = {400} height = {400} src="https://cdn.britannica.com/72/223172-131-C3F72804/astrology-horoscope-circle.jpg" alt="booking image" className="rounded-lg shadow-md" />
                     </div>
                 </div>
             </section>

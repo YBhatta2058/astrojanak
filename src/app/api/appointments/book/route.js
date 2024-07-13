@@ -23,9 +23,9 @@ export async function POST(request){
 
     const tomorrow = new Date(today.getTime() + (24*60*60*1000));
 
-    if(appointmentDate < tomorrow){
-        throw new ApiError(400,"Appointment date must be at least 24 hours from now")
-    }
+    // if(appointmentDate < tomorrow){
+    //     throw new ApiError(400,"Appointment date must be at least 24 hours from now")
+    // }
 
         const appointment = await Appointment.create({
             userId,

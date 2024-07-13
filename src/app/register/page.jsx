@@ -99,11 +99,19 @@ export default function Page() {
             .catch(error => console.error('Error fetching provinces:', error));
 
         // Fetch districts
-        fetch('https://kaalvairab.github.io/nepal-address/data/districts.json')
-            .then(response => response.json())
-            .then(data => setDistricts(data.districts))
-            .catch(error => console.error('Error fetching districts:', error));
+        
     }, []);
+    useEffect(()=>{
+        if(form.province){
+            console.log(form.province)
+            fetch(`https://kaalvairab.github.io/nepal-address/data/districtsByProvince/${form.province}.json`)
+            .then(response => response.json())
+            .then(data => {
+                setDistricts(data.districts)}
+            )
+            .catch(error => console.error('Error fetching districts:', error));
+        }
+    },[form.province])
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -174,7 +182,7 @@ export default function Page() {
                     </div>
                     <div>
                         <label htmlFor="district" className="block text-gray-700">District:</label>
-                        <select id="district" name="district" value={form.district} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-300">
+                        <select disabled = {!form.province} id="district" name="district" value={form.district} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-300">
                             <option value="">Select District</option>
                             {districts.map((district) => (
                                 <option key={district} value={district}>

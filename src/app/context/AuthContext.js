@@ -24,18 +24,17 @@ export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, initialState);
     const [isHydrated, setIsHydrated] = useState(false); 
 
-    // Initial check for user authorization
     useEffect(() => {
         const checkAuthority = async () => {
             try {
                 const { data } = await axios.get('http://localhost:3000/api/users/check', {
-                    withCredentials: true // This ensures cookies are sent
+                    withCredentials: true
                 });
                 if (data && data.data) {
                     dispatch({ type: 'LOGIN', payload: data.data });
                 }
             } catch (error) {
-                console.error('Error checking authority:', error);
+                console.log('User is not logged in');
             } finally {
                 setIsHydrated(true);
             }

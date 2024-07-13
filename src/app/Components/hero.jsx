@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function HeroSection() {
   return (
@@ -56,7 +57,7 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <img src="https://cdn.britannica.com/72/223172-131-C3F72804/astrology-horoscope-circle.jpg" alt="hero image" />
+          <Image width = {600} height = {400} src="https://cdn.britannica.com/72/223172-131-C3F72804/astrology-horoscope-circle.jpg" alt="hero image" />
         </div>
         
       </div>

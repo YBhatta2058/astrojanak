@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Quote = () => {
   return (
@@ -12,7 +13,7 @@ const Quote = () => {
                     <p className="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">"Dr. Janak Raj Bhatta is a phenomenal astrologer. His insights and predictions are incredibly accurate, providing guidance that is both profound and practical. A true master in his field."</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center mt-6 space-x-3">
-                    <img className="w-6 h-6 rounded-full" src="https://thinkfortech.com/static/media/ankit.07f9c8eafa81e382f792.jpg" alt="profile picture" />
+                    <Image width = {50} height = {50} className="w-6 h-6 rounded-full" src="https://thinkfortech.com/static/media/ankit.07f9c8eafa81e382f792.jpg" alt="profile picture" />
                     <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                         <div className="pr-3 font-medium text-gray-900 dark:text-white">Ankit Dawadi</div>
                         <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">CTO at GD Shop</div>
