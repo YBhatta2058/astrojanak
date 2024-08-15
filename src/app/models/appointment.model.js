@@ -6,7 +6,7 @@ const appointmentSchema = new Schema({
     date: { type: Date, required: true },
     time: { type: String, required: true },
     description: { type: String,default:"Random",required:true},
-    status: { type: String, enum: ['pending', 'accepted', 'rescheduled'], default: 'pending' },
+    status: { type: String, enum: ['pending', 'accepted', 'rescheduled','rejected'], default: 'pending' },
     adminNotes: { type: String,default:"No notes" }
 },{
     timestamps:true

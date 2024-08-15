@@ -1,5 +1,4 @@
 import { ApiError } from "@/app/Responses/ApiError";
-import { ApiResponse } from "@/app/Responses/ApiResponse";
 import { default as connectDB } from "@/app/db/connectDB";
 import { User } from "@/app/models/user.model";
 import { NextResponse } from "next/server";
@@ -40,8 +39,8 @@ export async function POST(request){
         response.cookies.set("token",accessToken,options)
         return response;
         
-
-    } catch (err) {
+} 
+    catch (err) {
         return NextResponse.json({error: err.message},{status: err.statusCode})
     }
 }

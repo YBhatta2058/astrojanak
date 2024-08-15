@@ -7,7 +7,6 @@ import { NextResponse } from "next/server";
 export async function PATCH(request, { params }){
     await connectDB();
     try {
-        console.log("Came request")
         const isAdmin = await verifyAdmin(request);
         if(!isAdmin){
             throw new ApiError(404,"Not an admin")

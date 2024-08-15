@@ -1,15 +1,12 @@
 // home.jsx
 "use client";
 
-import { useRouter } from 'next/navigation';
-import { useAuth } from '../hooks/useAuth';
-import axios from 'axios';
-import { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import HeroSection from '../Components/hero';
 import ServiceSection from '../Components/service';
 import Quote from '../Components/quote';
 import Contact from '../Components/contact';
+import Footer from '../Components/footer';
 
 export default function HomePage() {
     return (
@@ -21,6 +18,7 @@ export default function HomePage() {
                 <Quote />
                 <Contact />
             </main>
+            <Footer />
         </div>
     );
 }

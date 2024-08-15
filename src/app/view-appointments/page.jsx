@@ -49,7 +49,7 @@ export default function ViewAppointmentsPage() {
 
     const handleReject = async (appointmentId) => {
         try {
-            await axios.post(`/api/appointments/${appointmentId}/reject`);
+            await axios.post(`/api/appointments/reject/${appointmentId}`);
             setAppointments(appointments.map(appointment => 
                 appointment._id === appointmentId ? { ...appointment, status: 'rejected' } : appointment
             ));

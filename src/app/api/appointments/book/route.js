@@ -9,7 +9,7 @@ export async function POST(request){
     try {
     await connectDB();
     const userId = await getData(request);
-    const user = await User.findById(userId);
+    // const user = await User.findById(userId);
     if(!userId){
         throw new ApiError(401,"Unauthorized access");
     }
@@ -26,7 +26,6 @@ export async function POST(request){
     // if(appointmentDate < tomorrow){
     //     throw new ApiError(400,"Appointment date must be at least 24 hours from now")
     // }
-
         const appointment = await Appointment.create({
             userId,
             date,

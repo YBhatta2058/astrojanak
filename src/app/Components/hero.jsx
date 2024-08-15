@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -10,12 +11,13 @@ export default function HeroSection() {
             Discover the <br /> secrets of astrology
           </h1>
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-  Explore the celestial art of astrology with personalized readings and insights into your future. Unlock the mysteries of the stars. This landing page template utilizes utility classes from Tailwind CSS and is built on components from the Flowbite Library and the Blocks System.
+ 
+Explore the wisdom of the stars with our Astrological Services. Get personalized insights and accurate predictions tailored to your life. Book an appointment today for compassionate guidance. Let the stars light up your path to a brighter future.
 </p>
 
           <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-            <a
-              href="https://github.com/themesberg/landwind"
+            <Link
+              href="/appointment"
               className="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
             >
               <svg
@@ -28,9 +30,9 @@ export default function HeroSection() {
                 />
               </svg>
               Book Appointment
-            </a>
-            <a
-              href="https://www.figma.com/community/file/1125744163617429490"
+            </Link>
+            <Link
+              href="#contact"
               className="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
               <svg
@@ -53,7 +55,7 @@ export default function HeroSection() {
                 <path id="path3_fill" className="st4" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" />
               </svg>
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">

@@ -22,6 +22,10 @@ export async function POST(request){
             throw new ApiError(410,"Error while getting the id. User not found")
         }
         const res = await sendMail({email: user.email,emailType:"MESSAGE",userId:userId,Body:message});
+        if(!res){
+            console.log(res)
+            throw new ApiError(420,"Mail not sent. Error !!")
+        }
         return NextResponse.json({
             message: "Mail sent successfully",
             data: null

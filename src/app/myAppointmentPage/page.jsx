@@ -55,7 +55,7 @@ export default function MyAppointmentsPage() {
                         </h1>
                         {loading ? (
                             <div className="flex justify-center items-center">
-                                <div className="loader"></div> {/* Add a CSS spinner here */}
+                                <div className="loader"></div>
                             </div>
                         ) : appointments.length > 0 ? (
                             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -106,6 +106,8 @@ export default function MyAppointmentsPage() {
                     </div>
                 </div>
             </section>
+            {/* <Footer /> */}
+            
         </div>
     );
 }

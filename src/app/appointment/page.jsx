@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link';
 import Image from 'next/image';
+import AppointmentImage from '../../../public/images/appointment.jpg';
 
 export default function BookingPage() {
     const [date, setDate] = useState('');
@@ -56,13 +57,21 @@ export default function BookingPage() {
                             {message && <p className="text-sm text-gray-900 dark:text-white">{message}</p>}
                         </form>
                         <div className="mt-4">
-                            <Link className = "inline-flex items-center px-5 py-3 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800" href="/myAppointmentPage">
+                            <Link className="inline-flex items-center px-5 py-3 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800" href="/myAppointmentPage">
                                 See all my appointments
                             </Link>
                         </div>
                     </div>
                     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                        <Image width = {400} height = {400} src="https://cdn.britannica.com/72/223172-131-C3F72804/astrology-horoscope-circle.jpg" alt="booking image" className="rounded-lg shadow-md" />
+                        <div className="relative w-full h-full max-w-md max-h-md">
+                            <Image 
+                                src={AppointmentImage} 
+                                alt="booking image" 
+                                layout="fill"
+                                objectFit="cover"
+                                className="rounded-lg shadow-md" 
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
